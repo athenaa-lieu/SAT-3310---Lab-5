@@ -16,7 +16,7 @@ import collections
 
 # Variables
 dataurl = 'https://pages.mtu.edu/~toarney/sat3310/lab07/'
-datafile = 'fortune500.tsv.small'
+datafile = 'fortune500.tsv'
 datapath = '/home/sat3310/Documents/labs/SAT-3310---Lab-5/data/'
 
 mytimeout = 5
