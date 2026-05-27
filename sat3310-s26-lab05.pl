@@ -14,7 +14,7 @@ use LWP::Simple;
 
 # Variables
 
-$dataurl = "https://pages.mtu.edu/~toarney/sat3310/lab07/";
+$dataurl = "http://pages.mtu.edu/~toarney/sat3310/lab07/";
 $datafile = "fortune500.tsv";
 $datapath = "/home/sat3310/Documents/labs/SAT-3310---Lab-5/data/";
 
