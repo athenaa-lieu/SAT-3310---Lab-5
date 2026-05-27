@@ -57,20 +57,29 @@ with open(datapath + datafile, 'rt') as myinputfile:
 
         # Try to access the website and extract the server type
         try:
-            myresponse = requests.get(mywebsite, timeout=mytimeout)
-            myservertype = myresponse.headers['server']
-            myserverresponses.append(myservertype)
-            mywebsitecount += 1
+            myresponse = requests.get(
+                mywebsite,
+                timeout=mytimeout
+            )
+            # Extract the server type from the response headers
+            myservertype = myresponse.headers.get('server', 'Unknown')
         except:
+            # If there is an error (e.g., website not accessible), set server type to 'Unknown'
             myservertype = 'Unknown'
         finally:
-            # Count the websites
+            # Count the websites processed
             mywebsitecount += 1
 
             # Save the server type response
             myserverresponses.append(myservertype)
 
-            print(f"Processed {mywebsitecount}/{mytotalwebsitecount} websites", end='\r')
+            print("Processed",
+                  mywebsitecount,
+                  "/",
+                  mytotalwebsitecount,
+                  "websites",
+                  end='\r',
+                  flush=True)
 
 # Count the occurrences of each server type
 server_counts = collections.Counter(myserverresponses)
